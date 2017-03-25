@@ -243,6 +243,43 @@
 		//默认选中第一个
 		controls.querySelector('.mui-control-item').classList.add('mui-active');
 		contents.querySelector('.mui-control-content').classList.add('mui-active');
+		function insert(cNb,cName,imgurl,cPrice){
+			db.transaction(function(tx) {
+					tx.executeSql(
+						"insert into t_caipin (c_nb,c_name,c_imgurl,c_price) values(?,?,?,?)",[cNb,cName,imgurl,cPrice],
+						function(){ 
+						},
+						function(tx, error) {
+						});
+				});	
+		}
+//		db.transaction(function(tx) {
+//					tx.executeSql(
+//						"Delete from t_caipin where 1=1",[],
+//						function(){ 
+//						},
+//						function(tx, error) {
+//						});
+//				});
+//		添加数据
+//		insert(1,"猪肉饭","images/food1/timg1.jpg",16);
+//		insert(1,"排骨饭","images/food1/timg2.jpg",15);
+//		insert(1,"汤饭","images/food1/timg3.jpg",15);
+//		insert(1,"丸子饭","images/food1/timg4.jpg",15);
+//		insert(2,"拌面","images/food2/timg1.jpg",16);
+//		insert(2,"清汤面","images/food2/timg2.jpg",15);
+//		insert(2,"海鲜面","images/food2/timg3.jpg",15);
+//		insert(2,"杂粮面","images/food2/timg4.jpg",15);
+//		insert(3,"包子1","images/food3/timg1.jpg",16);
+//		insert(3,"包子2","images/food3/timg2.jpg",15);
+//		insert(3,"包子3","images/food3/timg3.jpg",15);
+//		insert(3,"包子4","images/food3/timg4.jpg",15);
+//		insert(3,"包子5","images/food3/timg5.jpg",15);
+//		insert(4,"饮料1","images/food4/timg1.jpg",16);
+//		insert(4,"饮料2","images/food4/timg2.jpg",15);
+//		insert(4,"饮料3","images/food4/timg3.jpg",15);
+//		insert(4,"饮料4","images/food4/timg4.jpg",15);
+		
 	</script>
 
 </html>
