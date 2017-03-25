@@ -1,0 +1,366 @@
+body,html{
+				margin: 0px;
+				padding: 0px;
+				height: 100%;
+				font-family: Microsoft YaHei;
+				
+			}
+			input[placeholder], [placeholder], *[placeholder] { 
+				font-family: "微软雅黑"; !important; 
+				}
+			.mui-input-row label{
+				font-family: "微软雅黑";
+				font-weight: 500;
+			}
+			.idcard_nav{
+				background: #11B18C;
+				color: #fff;
+				font-family: "微软雅黑";
+				position: relative;
+			}
+			.idcard_nav .mui-icon{
+				color: #fff;
+			}
+			.mui-title{
+				color: #fff;
+			}
+			.idcard_nav_right{
+				position: relative;
+				left: 30%;
+				}
+			/*登录*/
+			#sign_in{
+				display:block;
+				height: 100%;
+				background-image: url('../images/sign_bg.png');
+				background-size: cover;
+			}
+			#sign_in .mui-input-group{
+				background: none;
+			
+			}
+			#sign_in .mui-input-group:before{
+				height: 0;
+			}
+			#sign_in .mui-input-group .mui-button-row {
+				height: auto;
+				border: 0;
+			}
+			#sign_in  .mui-input-group .mui-btn{
+				background: #11B18C;
+				color: #fff;
+				height: 50px;
+				border: 0;
+				margin-top: 85px;
+				
+			}
+			#sign_in .signForm-content {
+				position: absolute;
+				width: 100%;
+				top:28%;
+			}
+			#sign_in .signForm-content .mui-input-row{
+				margin-bottom: 40px;
+			}
+			#sign_in .signForm-content input{
+			
+				color: #fff;
+			}
+			
+			#sign_in .signForm-content .mui-icon{
+				color: #fff;
+			}
+			#sign_in .forgetpwd{
+				position: absolute;
+				right: 30px;
+				color: #ADAEAF;
+				margin-top: -30px;
+				font-size: .7em;
+			}
+			#sign_in .mui-input-row label~input{
+				float: left;
+				margin-left:-15px;
+				width: 78%;
+				border-bottom: 1px solid #7D7F87;
+			}
+			#sign_in .mui-input-row label{
+				width: 20%;
+			}
+			.mui-bar-nav~.mui-content{
+				padding-top: 0px;
+			}
+			.mui-input-row label{
+				width: 29%;
+			}
+			.mui-input-row label~input{
+				float: left;
+			}
+			#sign_in .skipPage{
+				position: absolute;
+				color: #fff;
+				font-size: 70px;
+				left: 12px;
+				top: 1%;
+				font-weight: normal;
+			}
+			#sign_in .sign_logo{
+				position: absolute;
+				top: 12%;
+				width: 100%;
+				text-align: center;
+			}
+			#sign_in .sign_logo img{
+				width: 78px;
+				height: 78px;
+			}
+			.loginIcon{
+				position: relative;
+				width: 52%;
+				top: -6px;
+				left: 4px;
+			}
+			#sign_in .mui-input-row .mui-input-clear~.mui-icon-clear, .mui-input-row .mui-input-password~.mui-icon-eye, .mui-input-row .mui-input-speech~.mui-icon-speech{
+				right:30px;
+			}
+			#sign_in .mui-input-row:after{
+				background: none;
+			}
+			#sign_in .mui-input-group:after{
+				background: none;
+			}
+			 #sign_in .mui-btn-block{
+				text-align: center;
+				color: #fff;
+				font-size: 16px;
+				width: 90%;
+				margin-left: 5%;
+				margin-top: 60px;
+				background-color: #11B18C;
+				border: 0;
+			}
+			.mui-input-row label{
+				font-family: "微软雅黑";
+			}
+			.signByWeixin{
+				/*width: 100%;*/
+				text-align: center;
+				color: #ADAFAE;
+				margin-top: 12px;
+			}
+			.sign_or{
+				margin-top: 40px;
+			}
+			.sign_or img{
+				width: 100%;
+			}
+			.sign_weixin{
+				text-align: center;
+				margin-top: 10px;
+			}
+			.sign_weixin img{
+				width: 16%;
+			}
+			/*忘记密码*/
+			#forgivePwd{
+				display: none;
+				height: 100%;
+			}
+			#forgivePwd .mui-input-row{
+				height: 60px;
+				padding-top: 8px;
+				line-height: 50px;
+			}
+			.verifyCod label{
+				width: 27%;
+				font-family: "微软雅黑";
+			}
+			.verifyCod .verifInput{
+				width: 31%;
+				float: left;
+			}
+			.verifyCod .verifValue{
+				width: 30%;
+				border-left: 1px solid #F0F0F1;
+				padding-left: 15px;
+				font-family: "微软雅黑";
+				color: #98989f;
+			}
+			
+			.verifyCod{
+				position: relative;
+			}
+			.verifyCod .refreshIcon{
+				position: absolute;
+				right: 5%;
+				top: 20%;
+				height: 40%;
+			}
+			/*找回密码*/
+			#findPwd{
+				display: none;
+				height: 100%;
+			}
+			#findPwd .mui-input-row{
+				height: 60px;
+				padding-top: 8px;
+				line-height: 50px;
+			}
+			#findPwd .verifyCod .verifInput{
+				width: 25%;
+				float: left;
+				padding: 0;
+				margin: 0;
+				position: relative;
+				left: -20px;
+			}
+			#findPwd .verifyCod .verifInputThir{
+				width: 36%;
+				float: left;
+				padding: 0;
+				margin: 0;
+				position: relative;
+				left: -20px;
+			}
+			#findPwd .verifyCod .verifValue{
+				position: relative;
+				width: 40%;
+				float: left;
+				border-left: 1px solid #F0F0F1;
+				padding-left: 10px;
+			}
+			.mybtn{
+				text-align: center;
+				color: #fff;
+				font-size: 16px;
+				width: 90%;
+				height: 30%;
+				margin-left: 5%;
+				margin-top: 37px;
+				background-color: #11B18C;
+				border: 0;
+				border-radius: 6px;
+			}
+			.mui-btn-block{
+				padding: 3% 0;
+			}
+			/*密码修改成功*/
+			#pwdchangeSucc{
+				display: none;
+				height: 100%;
+			}
+			.password_change_content img{
+			width: 100%;
+
+		}
+		.icon_bg{
+			height: 44px;
+			width: 44px;
+			border-radius: 44px;
+			background:#11B18C;
+			color: #fff;
+			font-size: 1rem;
+			text-align: center;
+			line-height: 44px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.password_change_content .paw_font{
+			color: #11B18C;
+			width: 100%;
+			
+		}
+		#PwdChange{
+			display: none;
+			height: 100%;
+		}
+		.login_btn{
+			width: 90%;
+			margin-left: 5%;
+			background: #11B18C;
+			color: #FFF;
+			height: 50px;
+			font-size: 1rem;
+		}
+			/*注册*/
+			#sign_up{
+				display: none;
+				height: 100%;
+			}
+		
+			.sign_tip{
+				color: #777A80;
+				font-size: 16px;
+				padding-left: 16px;
+				padding-top: 34px;
+				padding-bottom: 16px;
+			}
+			.sign_tip_two{
+				padding-top: 15px;
+				
+			}
+			#sign_up .mui-input-group .mui-input-row{
+				height: 60px;
+				padding-top:10px;
+			
+			}
+			#sign_up .mui-input-group{
+				/*height: 60px;*/
+			}
+			#sign_up .mui-btn-success{
+				border: 2px solid #11B18C;
+				color: #11B18C;
+				border-radius: 0;
+			}
+			#sign_up .sign_out_in{
+				position: absolute;
+				right: 5%;
+				
+			}
+			#sign_up .sign_out_in span{
+				color: #BBBBC0;
+				font-size: 14px;
+				position: relative;
+				top: 8px;
+			}
+			/*注册2*/
+			#sign_up_two{
+				display: none;
+				height: 100%;
+				
+			}
+			#sign_up_two .sin_up_time .pawIput{
+				
+				width: 30%;
+				float: left;
+				
+			}
+			#sign_up_two .sin_up_time label{
+				width: 25%;
+			}
+			#sign_up_two .sin_up_time .delayTime{
+				width: 40%;
+				padding-left: 2%;
+				border-left: 1px solid #F5F5F6;
+				
+			}
+			#sign_up_two .mui-input-group .mui-input-row{
+				height: 60px;
+				padding-top:10px;
+			}
+			#sign_up_two .mui-input-group .mui-icon-eye{
+				right: 13px;
+				top:20px
+			}
+			.sign_up_tip{
+				color: #9C9BA2;
+				padding-left:5% ;
+				font-size: 14px;
+			}
+			.sign_up_tip span{
+				color: #11B18C;
+				
+			}

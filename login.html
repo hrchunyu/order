@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/login.css" />
+		<style type="text/css">
+			#sign_in .icon-guanbi1{
+				color: #fff;
+				font-size: 30px;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+			}
+			#sign_in .signForm-content .mui-icon.mui-active{
+				color: pink;
+			}
+		</style>
+	</head>
+
+<body>
+	<!--登录-->
+	<div id="sign_in">
+		<span class="mui-icon iconfont icon-guanbi1 skip" data-page="index.html"></span>
+		<div class="sign_logo">
+		<img src="images/loginlogo.png" alt="" />
+		</div>
+		<div class="signForm-content">
+			<form class="mui-input-group">
+		   		<div class="mui-input-row">
+		        <label><img class="loginIcon" src="images/loginIcon_03.png" alt="" /></label>
+			    <input type="text" class="mui-input-clear" id="username" placeholder="请输入用户名">
+			    </div>
+			    <div class="mui-input-row">
+			        <label><img class="loginIcon" src="images/loginIcon_06.png" alt="" /></label>
+			        <input type="password" class="mui-input-password" id="password" placeholder="请输入密码">
+			    </div>
+			</form>
+			 <button type="button" class="mui-btn  mui-btn-block mybtn" id="loginBtn">登录</button>
+			 <div>
+			 	<div class="sign_or"><img src="images/or.png" alt="" /></div>
+			    <div class="signByWeixin skip" data-page="reg.html">免费注册</div>
+			 </div>
+		</div>
+	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/temp.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mysql.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			mui.init();
+			var db = openDatabase("myorder", "1.0", "订餐", 1024 * 1024, function() {});	
+			mui('body').on('tap','#loginBtn',function(){
+				var username=document.getElementById('username').value;
+				var password=document.getElementById('password').value;
+				db.transaction(function(tx){
+                tx.executeSql("select * from t_user2",[],function(trans,rs){
+                   for(var i=0;i<rs.rows.length;i++){
+                   	var name=rs.rows.item(i).u_name;
+                   	var pwd=rs.rows.item(i).u_pwd;
+                   	if(name==username && pwd==password){
+                   		localStorage.setItem('name',username);
+                   		localStorage.setItem('id',rs.rows.item(i).rowid);
+                   		 mui.openWindow({
+						    url:"index.html",
+						    id: "index.html"
+						})
+                   		alert("登录成功！");
+                   	}else{
+                   		alert("用戶名或密碼錯誤！")
+                   	}
+                   }
+                });
+            })
+				
+			})
+		</script>
+</body>
+
+</html>

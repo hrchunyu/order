@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/myicongs.css" />
+		<link rel="stylesheet" type="text/css" href="css/temp.css"/>
+		<style>
+		.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			oa-contact-position {
+				float: left;
+			}
+			
+			.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: 100%;
+			}
+			.mui-col-xs-3,
+			.mui-control-content {
+				overflow-y: auto;
+				height: 100%;
+		}
+		.mui-segmented-control .mui-control-item {
+			line-height: 50px;
+			width: 100%;
+		}
+		.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+			background-color: #fff;
+		}
+		.indexContent{
+			position: fixed;
+			width: 100%;
+			top: 44px;
+			
+		}
+		.mui-bar-tab .mui-tab-item.mui-active{
+			color: #19B38D;
+		}
+		.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+			color: #19B38D;
+		}
+		#tuichuskip{
+			display: none;
+		}
+	
+		</style>
+	</head>
+
+	<body>
+
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon iconfont icon-waimai"></span>
+				<span class="mui-tab-label">外卖</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon iconfont icon-dingdan "></span>
+				<span class="mui-tab-label">订单</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		
+
+			<div id="tabbar" class="mui-control-content mui-active">
+				<header class="mui-bar mui-bar-nav">
+					<h1 class="mui-title">外卖</h1>
+				</header>
+				<div class="indexContent mui-row mui-fullscreen">
+					<div class="mui-col-xs-3">
+						<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+						</div>
+					</div>
+					<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+						<div id="item1" class="mui-control-content mui-active">
+						</div>
+						<div id="item2" class="mui-control-content">
+						</div>
+						<div id="item3" class="mui-control-content">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tabbar-with-chat" class="mui-control-content">
+					<header class="mui-bar mui-bar-nav">
+					<h1 class="mui-title">我的购物车</h1>
+				</header>
+
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content">
+				<header class="mui-bar mui-bar-nav">
+					<h1 class="mui-title">我的</h1>
+				</header>
+				<div class="indexContent">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							收获地址
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							我的订单
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							我的购物车
+						</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view" style="margin-top: 25px;">
+					<li class="mui-table-view-cell">
+						<a style="text-align: center;color: #19B38D;" id="loginskip">
+							立即登录
+						</a>
+						<a style="text-align: center;color: red;" id="tuichuskip">
+							退出登录
+						</a>
+					</li>
+				</ul>
+				</div>
+			</div>
+	
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mysql.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/temp.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		var controls = document.getElementById("segmentedControls");
+		var contents = document.getElementById("segmentedControlContents");
+		var sql1 = "create table if not exists user (name varchar(50), password varchar(50),tel varchar(50),address varchar(50), imgurl varchar(50))";
+		var sql2 = "create table if not exists menue (C_name varchar(50), c_price int,tel number null,c_num int, imgurl varchar(50))";
+		var sql3 = "create table if not exists userManager (u_id int, u_c_name varchar(50),u_address varchar(50), mark varchar(50))";
+		var db = openDatabase("myorder", "1.0", "订餐", 1024 * 1024, function() {});
+ 		db.transaction(function(tx){
+//            参数:1.sql语句
+            tx.executeSql("create table if not exists t_user2(u_name varchar(50),u_pwd varchar(50))")
+       })
+ 		db.transaction(function(tx){
+//            参数:1.sql语句
+            tx.executeSql("create table if not exists t_infor(u_id int,u_address varchar(50))")
+       })
+// 		购物车
+ 		db.transaction(function(tx){
+//            参数:1.sql语句
+            tx.executeSql("create table if not exists t_gwche(u_id int,c_id int)")
+       })
+// 		订单
+ 		db.transaction(function(tx){
+//            参数:1.sql语句
+            tx.executeSql("create table if not exists t_dingdan(u_id int,c_id int)")
+       })
+// 		菜品
+ 		db.transaction(function(tx){
+//            参数:1.sql语句
+            tx.executeSql("create table if not exists t_caipin(c_nb int,c_name varchar(50),c_imgurl varchar(50),c_price int)")
+       })
+
+			
+		var html = [];
+		var menu=[
+		{
+			name:"中式套餐类",
+			menulist:[{name:"炒饭"},{name:"冒饭"},{name:"盖浇饭"},{name:"烩饭"},{name:"西式套餐"}]
+		},
+		{
+			name:"面条",
+			menulist:[{name:"杂酱面"},{name:"煎蛋面"},{name:"馋面"},{name:"牛肉面"},{name:"炒面"}]
+			},
+		{
+			name:"面点",
+			menulist:[{name:"包子"},{name:"馋包"},{name:"蒸饺"},{name:"烧麦"},{name:"煎饼"}]
+			},
+		{
+			name:"饮料小吃",
+			menulist:[{name:"南瓜饼"},{name:"炸牛奶"},{name:"珍珠奶茶"},{name:"果汁"},{name:"蝴蝶虾"}]
+			}
+		];
+		var menu0list=[{name:"炒饭"},{name:"冒饭"},{name:"盖浇饭"},{name:"烩饭"},{name:"西式套餐"}];
+		var menu1list=[{name:"杂酱面"},{name:"煎蛋面"},{name:"馋面"},{name:"牛肉面"},{name:"炒面"}];
+		var menu2list=[{name:"包子"},{name:"馋包"},{name:"蒸饺"},{name:"烧麦"},{name:"煎饼"}];
+		var menu3list=[{name:"南瓜饼"},{name:"炸牛奶"},{name:"珍珠奶茶"},{name:"果汁"},{name:"蝴蝶虾"}];
+		var i = 0,
+			j = 1,
+			n = 21; //每个选项卡列表数量+1
+		for(; i < menu.length; i++) {
+			html.push('<a class="mui-control-item" href="#content' + i + '">' + menu[i].name + '</a>');
+		}
+		controls.innerHTML = html.join('');
+		html = [];
+		for(i = 0; i < menu.length; i++) {
+			html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+			for(j = 0; j <menu[i].menulist.length; j++) {
+				html.push('<li class="mui-table-view-cell"><a class="mui-navigate-right">'+menu[i].menulist[j].name+'</a></li>');
+			}
+			html.push('</ul></div>');
+		}
+		contents.innerHTML = html.join('');
+		//默认选中第一个
+		controls.querySelector('.mui-control-item').classList.add('mui-active');
+		contents.querySelector('.mui-control-content').classList.add('mui-active');
+	</script>
+
+</html>
